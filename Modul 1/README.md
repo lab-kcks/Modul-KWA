@@ -52,6 +52,17 @@ Ada ketergantungan antar ketiga atribut ini. Ketika aspek sekuritas diprioritask
 
 **Suicide Hackers** - hackers yang tidak takut masuk penjara atau menghadapi hukuman apa pun.
 
+### Types of Pentesting Method
+* **Black Box**
+
+Pada metode  Black Box, penguji ditempatkan sebagai peretas sebagai umumnya, tanpa pengetahuan internal tentang sistem target. Penguji tidak diberikan diagram arsitektur atau kode sumber apa pun yang tidak tersedia untuk umum.
+* **Grey Box**
+
+Pada metode  Grey Box, penguji memiliki akses dan pengetahuan pengguna (misalnya diberikan sebuah akun). Penguji biasanya memiliki pengetahuan tentang internal jaringan, kemungkinan termasuk dokumentasi mengenai desain arsitektur dan akun internal ke jaringan.
+* **White Box**
+
+Pada metode White Box, penguji memiliki akses ke semua informasi yang dibutuhkan. Hal ini membuat penguji dapat memeriksa sistem secara menyeluruh dan mencapai tahap yang mungkin belum dapat terakses dengan metode black box atau grey box. Contohnya adalah penguji diberikan akses ke source code yang ada.
+
 ### Threat Categories
 * **Network Threats**
   - Information gathering
