@@ -53,7 +53,7 @@ Apa aja sih yang seharusnya didapatin dari fase recon?
 
 ## How to perform recon?
 
-- **[Nmap](https://nmap.org/)** - Finding open ports
+- **[Nmap](https://nmap.org/)** - Finding open ports<br>
   ![nmap](img/Nmap-Scan-Network-Services-Ports.png)
 
 Kenapa kita perlu mengetahui apa saja port yang terbuka? serangan atau celah keamanan bisa muncul dari mana saja, tidak semua data breach berasal dari website, bisa saja berasal dari kesalahan konfigurasi pada FTP service, SSH service ataupun lain sebagainya, bisa saja terdapat website tersembunyi yang diletakan pada port yang tidak sewajarnya misalnya pada port 5000. Nmap merupakan tools untuk melakukan enumerasi utamanya untuk menemukan port apa saja yang terbuka. Tidak hanya itu nmap juga bisa melakukan banner grabbing untuk menemukan versi dari service yang dijalankan. Nmap merupakaan tools yang sangat powerfull dikarenakan banyaknya opsi dan fitur yang diberikan, salah satunya adalah menemukan celah keamanan dari suatu servis berdasarkan versinya atau commmon misconfiguration.
@@ -120,10 +120,10 @@ Kenapa kita perlu mengetahui apa saja port yang terbuka? serangan atau celah kea
 
 **_notes : [link](https://github.com/jasonniebauer/Nmap-Cheatsheet) cheatsheet nmap_**
 
-- **Domain Name System**
+- **Domain Name System**<br>
   Domain name system merupakan buku telepon pada internet. Sebagai manusia kita biasanya mengakses suatu website menggunakan nama domain misalnya google.com, github.com, sedangkan web browser berkomunikasi dengan website menggunakan IP address. DNS adalah teknologi yang menerjemahkan IP address menjadi sebuah nama domain.
     <br>
-  - **/etc/hosts**
+  - **/etc/hosts**<br>
     Dalam sebuah komputer terdapat file hosts, pada linux ini berada pada /etc/hosts dan pada windows ini berada pada C:\Windows\System32\drivers\etc\hosts. File inilah yang menerjemahkan ip address menjadi host name. Terkadang jika kita melakukan penetration testing pada internal network suatu perusahaan mereka menggunakan IP internal seperti 10.x.x.x , umumnya setingan nama domain pada internal network perlu ditambahkan secara manual. Misalnya ip 10.17.100.13 seharusnya nama domain nya adalah archive.htb namun ketika kita mencoba mengakses archive.htb melalui web browser tidak bisa, maka kita perlu menambahkan ip 10.17.100.13 sebagai archive.htb pada file /etc/hosts kita.
 
     ```
@@ -133,7 +133,7 @@ Kenapa kita perlu mengetahui apa saja port yang terbuka? serangan atau celah kea
     ```
 
     <br>
-  - **bruterforcing subdomain**
+  - **bruterforcing subdomain**<br>
     Menemukan subdomain adalah hal kritikal dalam fase recon. Menemukan subdomain berarti memperluas kemungkinan celah keamanan dapat ditemukan. Subdomain dapat ditemukan dari 2 cara, yaitu pasif dan aktif. Pasif artinya kita tidak melakukan interaksi dengan target. Salah satu cara yang digunakan adalah melalu website securitytrails.com. Untuk aktif kita bisa melakukan bruteforcing subdomain dengan menggunakan beberapa tools berikut:
 
     ```
@@ -148,7 +148,7 @@ Kenapa kita perlu mengetahui apa saja port yang terbuka? serangan atau celah kea
     VHostScan -t target.com
     ```
 
-- **Directory Bruteforcing**
+- **Directory Bruteforcing**<br>
   Pada sebuah website pasti terdapat beberapa direktori direktori dengan kegunaanya masing masing. Direktori ataupun file pada website tidak dapat kita temukan secara langsung kecuali jika memang terdapat vulnerability [<u>directory listing</u>](https://portswigger.net/kb/issues/00600100_directory-listing) . Satu - satunya cara yang dapat dilakukan attacker adalah melakukan brute force attack dalam artian attacker mencoba mengakses banyak endpoint berdasarkan wordlist directory yang dia punya.
   <br>&nbsp;
     Tools yang dapat digunakan dalam directory bruteforcing terdapat beberapa misalnya, wfuzz, dirb, dirbuster, gobuster, dan lain lain.
@@ -168,7 +168,7 @@ Kenapa kita perlu mengetahui apa saja port yang terbuka? serangan atau celah kea
         dirb http://target.com
         ```
 
-  - **dirbuster**
+  - **dirbuster**<br>
         Ada GUI nya tampilanya kurang lebih seperti ini
         ![dirbuster](img/dirbuster.jpg)
   <br>&nbsp;<br>
@@ -179,5 +179,5 @@ Kenapa kita perlu mengetahui apa saja port yang terbuka? serangan atau celah kea
 
 <br>
 
-- **Positive Testing**
+- **Positive Testing**<br>
   Positive testing merupakan istilah yang sering digunakan oleh QA engineer ketika melakukan pengujian pada sebuah aplikasi. Positive testing adalah aktivitas melakukan pengujian kegunaan pada sebuah fitur atau fungsi, positive testing ditujukan untuk mengetahui apakah fitur tersebut berfungsi sebgaimana fungsinya atau masih terdapat error. Positive testing dalam proses penetration testing juga dilakukan guna memudahkan attacker untuk memahami fungsi dari sebuah fitur. Pemahaman fitur ataupun logic pada aplikasi vital untuk dimengerti oleh pentester guna mempercepat proses penetration testing.
