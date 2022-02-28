@@ -56,13 +56,18 @@ Langkah selanjutnya adalah melakukan install CA Ceritificate dari web proxynya. 
 ![](Image/modul_3_burp.png)
 
 Unduh Certifaicate dengan menekan tombol CA Certificate. Setelah itu tinggal kita pasang CA Certificate pada browser masing masing. Masuk ke bagian setting browser.
+
 - Firefox
+
 Cari Certificates lalu import CA Certificate
 ![](Image/modul_3_installCA_firefox.png)
+
 - Google Chrome
-Masuk ke Security -> Pilih Manage Certificates. Import CA Certificate yang sudah didownload. Pilih Trusted root Certification Authorities
+
+Masuk ke Security -> Pilih Manage Certificates. Import CA Certificate yang sudah didownload. Pilih Trusted root Certification Authorities jika terdapat sebuah pop up klik saja YES.
+
 ![](Image/modul_3_installCA_chrome.png)
-Jika terdapat sebuah pop up klik saja YES.
+
 
 Setelah seluruh konfigurasi dilakukan maka seluruh lalu lintas akan dirutekan melalui web proxy (Burp Suite)
 
