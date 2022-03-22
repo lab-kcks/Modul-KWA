@@ -134,7 +134,8 @@ Banyak sekali sebuah applikasi web ataupun API tidak melakukan proteksi terhadap
 Injection terjadi ketika data yang tidak terpercaya dikirim dan dimasukkan ke sebuah query secara langsung tanpa adanya sanitasi. Penyerang dapat merubah query akhir seusai keinginannya dan mengeksekusinya untuk mendapatkan data yang diinginkannya. Contohnya adalah SQL Injection.
 
 ### 4. Insecure Design
-Jangan lupakan hal terpenting sebelum memulai coding aplikasi yaitu membuat sebuah design alur aplikasi yang aman. Kita sebagai programmer harus mengetahui ancaman apa yang akan kita hadapi. Seperti memetakan mana saja yang merupakan public data,private data, restricted data, dan mungkin saja High risk data (token, password). Perlu diperhatikan untuk membuat pesan kesalahan kepada user yang aman(tidak mengekspos error message yang mengandung data sensitif)
+Jangan lupakan hal terpenting sebelum memulai coding aplikasi yaitu membuat sebuah design alur aplikasi yang aman. Kita sebagai programmer harus mengetahui ancaman apa yang akan kita hadapi. Seperti memetakan mana saja yang merupakan public data,private data, restricted data, dan mungkin saja High risk data (token, password). Perlu diperhatikan untuk membuat pesan kesalahan kepada user yang aman(tidak mengekspos error message yang mengandung data sensitif). Celah keamanan yang termasuk dalam kategori ini sebenarnya sangat luas, dan lebih berfokus kepada desain keamanan yang hilang atau salah. Secure design sendiri adalah culture dan metodologi yang terus-menerus mengevaluasi threats dan memastikan bahwa kode yang dirancang diuji dengan detail untuk mencegah metode serangan yang diketahui. Diperlukan suatu kebijakan dan aturan yang kuat dalam proses pengembangan aplikasi. Salah satu contohnya adalah implementasi DevSecOps, yaitu implementasi aspek security pada software development lifecycle. Dalam secure design juga mengawasi celah keamanan supply chain, atau memastikan aplikasi/library dari pihak ketiga aman dan dalam versi paling mutakhir.
+
 ### 5. Security Misconfiguration
 
 "Your software is only as secure as you configure it to be". Perlu disadari standar konfigurasi secara default belum tentu membuat sebuah software tersebut sudah aman. Bisa saja akun default pada sebuah software/aplikasi yang digunakan jadi pintu masuk oleh hacker untuk melakukan ekploitasi lebih lanjut. Tidak hanya sistem operasi, frameworks, libraries, dan aplikasi harus dikonfigurasi dengan aman, tetapi juga harus diperbarui secara tepat waktu.
@@ -151,7 +152,7 @@ Fungsi aplikasi yang terkait dengan otentikasi dan manajemen sesi sering diimple
 
 ### 8. Software and Data Integrity Failures
 
-Software and Data Integrity Failures
+Software and Data Integrity Failures adalah tipe celah keamanan yang muncul ketika proses pengambilan/penginstallan library dari sumber yang tidak terpercaya. Pada tahun lalu, 2021, terdapat salah satu celah keamanan yang membuat perusahaan perusahaan besar seperti Facebook, Apple, Amazon, Netflix, Google, Microsoft termasuk menjadi korban dari tipe serangan dependency confusing. Dependency confusing adalah serangan dimana ketika software melakukan update library/aplikasi dia mengambil dari repository yang tidak terpercaya dan sudah disisipi code berbahaya. Celah keamanan ini muncul karena software tidak melakukan pengecekan darimana libirary tersebut diinstal dan apakah data didalamnya sesuai dengan yang diinginkan atau tidak. 
 
 ### 9. Security Logging and Monitoring Failures
 
