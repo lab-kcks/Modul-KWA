@@ -113,3 +113,52 @@ Setelah posisi fuzzing sudah ditentukan saatnya memasukkan payload. Bisa pergi k
 Tool lain yang biasa digunakan adalah OWASP ZAP. Fitur kurang lebih sama dengan burp suite, akan tetapi terdapat fitur yang dimana di Burp Suite itu berbayar teteapi di ZAP ini gratis yaitu scanner. Kalian dapat mengunduh ZAP melalui halaman berikut ini:
 https://www.zaproxy.org/download/ . Untuk melakukan konfigurasi hampir sama dengan Burp Suite. Tinggal menginstall tool tersebut. Setelah itu mendapatkan CA Certificate dengan membuka ZAP lalu Tools->Options->Dynamic SSL Certificates->Save. Setelah intu pasang CA Certificate pada Web browser. Untuk web proxy ZAP jugra berjalan pada 127.0.0.1 port 8080 sama seperti Burp Suite.
 ![](Image/modul3_halaman_zap.png)
+
+## Keamanan Aplikasi Web
+
+### Introduction
+Dalam pembuatan website, salah satu faktor yang sangat penting dan perlu perhatian lebih adalah pada sistem keamanannya. Keamanan sebuah website sangatlah penting mengingat begitu banyak data penting dan tersimpan di dalam server website. Perlu diketahui terdapat sebuah organisasi nirlaba internasional yang memiliki visi untuk menjaka keamanan siber terutama pada sebuah aplikasi website, yaitu OWASP (Open Web Application Security Project). OWASP biasanya akan merilis sebuah list 10 celah keamanan yang sering terjadi pada tahun tersebut. Bisa dilihat pada gambar dibawah ini bahwa untuk list top 10 dari 2017 dan 2021 sudah berbeda mulai dari terdapat kategori baru atau perubahan penamaan,ruang lingkup, dan peringkat celah keamanan.
+
+![](Image/top10owasp.png)
+## OWASP top 10 2021
+### 1. Broken Access Control
+
+Sebuah kontrol akses memberlakukan kebijakan sehingga pengguna tidak dapat bertindak di luar izin yang dimaksudkan. Broken Access Control biasanya menyebabkan terjadinya  unauthorized information disclosure, modification, or destruction dari sebuah data atau bisa juga melakukan sebuah fungsi bisnis diluar batas pengguna yang sudah ditentukan.
+
+### 2. Cryptographic Failures
+
+Banyak sekali sebuah applikasi web ataupun API tidak melakukan proteksi terhadap data yang sensitif dengan menggunakan sebuah enkripsi. Penyerang dapat mencuri atau memodifikasi data seperti melakukan pencurian kartu kredit, pencurian identitas.Data sensitif harus dienkripsi menggunakan algoritma enkripsi modern. Contohnya simpelnya adalah penggunaan TLS (Transport Layer Security) pada sebuah website.
+
+### 3. Injection
+
+Injection terjadi ketika data yang tidak terpercaya dikirim dan dimasukkan ke sebuah query secara langsung tanpa adanya sanitasi. Penyerang dapat merubah query akhir seusai keinginannya dan mengeksekusinya untuk mendapatkan data yang diinginkannya. Contohnya adalah SQL Injection.
+
+### 4. Insecure Design
+Jangan lupakan hal terpenting sebelum memulai coding aplikasi yaitu membuat sebuah design alur aplikasi yang aman. Kita sebagai programmer harus mengetahui ancaman apa yang akan kita hadapi. Seperti memetakan mana saja yang merupakan public data,private data, restricted data, dan mungkin saja High risk data (token, password). Perlu diperhatikan untuk membuat pesan kesalahan kepada user yang aman(tidak mengekspos error message yang mengandung data sensitif)
+### 5. Security Misconfiguration
+
+"Your software is only as secure as you configure it to be". Perlu disadari standar konfigurasi secara default belum tentu membuat sebuah software tersebut sudah aman. Bisa saja akun default pada sebuah software/aplikasi yang digunakan jadi pintu masuk oleh hacker untuk melakukan ekploitasi lebih lanjut. Tidak hanya sistem operasi, frameworks, libraries, dan aplikasi harus dikonfigurasi dengan aman, tetapi juga harus diperbarui secara tepat waktu.
+
+### 6. Vulnerable and Outdated Components
+
+Sebuah komponen seperti library,frameworks, dan juga modul software berjalan pada pivilege yang sama dengan sebuah aplikasi website yang menggunakan komponen tersebut. Jika terdapat sebuah komponen yang vulnerable maka bisa saja terjadi pencurian data ataupun server takeover. Sebuah aplikasi menggunakan komponen yang memiliki kerentanan yang sudah diketahui maka dapat terjadi serangan yang mengakibatkan kerugian. Contohnya adalah kasus Log4j. Banyak sekali yang menggunakan log4j di java  untuk membuat sebuah log. Disini log4j ditemukan kerentanan Remote Code Execution dengan mengeksploitasi insecure JNDI lookups sehingga banyak sekali aplikasi yang terkena serangan Remote code Execution.Contohnya adalah Mincecraft. Sehingga perushaan yang menggunakan log4j cepat-cepat menambal celah keamanan tersebut.
+
+![](Image/log4j.png)
+
+### 7. Identification and Authentication Failures
+
+Fungsi aplikasi yang terkait dengan otentikasi dan manajemen sesi sering diimplementasikan secara tidak benar. Hal ini memungkinkan penyerang untuk mengkompromikan kata sandi, kunci, atau token sesi, atau untuk mengeksploitasi kelemahan implementasi lain untuk menyamamar/menggunakan identitas pengguna lain untuk sementara atau permanen.
+
+### 8. Software and Data Integrity Failures
+
+Software and Data Integrity Failures
+
+### 9. Security Logging and Monitoring Failures
+
+Security Logging dan Monitoring sangatlah penting. Logging dan Monitoring dibutuhkan untuk melihat apa saja yang terjadi pada sebuah aplikasi website (apakah ada aktivitas yang mencurigakan atau tidak). Dengan cacatnya sistem Logging dan Monitoring mengakibatkan terlambatnya proses Incident response. Hal ini mengakibatkan jika aplikasi berhasil diserang maka attacker akan dengan mudahnya melakukan ekploitasi lebih dalam tanpa langsung diketahui oleh pemilik aplikasi.
+
+### 10. Server-Side Request Forgery
+
+Server Side Request Forgery (SSRF) mengacu pada serangan di mana penyerang dapat mengirim permintaan yang dibuat dari aplikasi web yang rentan. SSRF biasanya digunakan untuk menargetkan sistem internal di belakang firewall yang biasanya tidak dapat diakses oleh penyerang dari jaringan eksternal. Contohnya adalah sebuah website yang dapat membuat HTTP request ke sebuah domain yang diberikan oleh user, kemungkinan besar terdapat celah SSRF didalamnya.
+
+![](Image/ssrf.png)
