@@ -133,6 +133,34 @@ Banyak sekali sebuah applikasi web ataupun API tidak melakukan proteksi terhadap
 
 Injection terjadi ketika data yang tidak terpercaya dikirim dan dimasukkan ke sebuah query secara langsung tanpa adanya sanitasi. Penyerang dapat merubah query akhir seusai keinginannya dan mengeksekusinya untuk mendapatkan data yang diinginkannya. Contohnya adalah SQL Injection.
 
+SQL Injection adalah kerentanan keamanan web yang memungkinkan penyerang menginputkan query sql yang dibuat aplikasi ke basis datanya. Biasanya memungkinkan attacker untuk melihat data yang biasanya tidak dapat mereka ambil. Hal ini mungkin termasuk data milik pengguna lain, atau data lain yang dapat diakses oleh aplikasi itu sendiri. Dalam banyak kasus, attacker dapat memodifikasi atau menghapus data, menyebabkan perubahan terus-menerus pada konten atau perilaku aplikasi, dan celah keamanan inilah yang paling sering memunculkan insiden data breach.
+
+Ada berbagai macam kerentanan, serangan, dan teknik SQL injection, yang muncul dalam situasi yang berbeda. Beberapa contoh SQL injection umum meliputi:
+
+- Mengambil data tersembunyi, tempat attacker dapat mengubah kueri SQL untuk mengembalikan hasil tambahan.
+- Menumbangkan logika aplikasi, di mana attacker dapat mengubah kueri untuk mengganggu logika aplikasi.
+- UNION attack, di mana attacker dapat mengambil data dari tabel database yang berbeda.
+- Memeriksa database, di mana attacker dapat mengekstrak informasi tentang versi dan struktur database.
+- Blind SQL injection, di mana hasil kueri yang dapat dikontrol tidak dikembalikan dalam respons aplikasi, namun berakibat sama yaitu data breach.
+
+Cara awal mendeteksi apakah terdapat celah keamanan SQL injection bisa dengan memasukan payload payload sebagai berikut :
+
+```
+'
+%27
+"
+%22
+#
+%23
+;
+%3B
+)
+Wildcard (*)
+&apos;  # required for XML content
+```
+
+Untuk detail payload yang biasa digunakan bisa dicek https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SQL%20Injection
+
 ### 4. Insecure Design
 Jangan lupakan hal terpenting sebelum memulai coding aplikasi yaitu membuat sebuah design alur aplikasi yang aman. Kita sebagai programmer harus mengetahui ancaman apa yang akan kita hadapi. Seperti memetakan mana saja yang merupakan public data,private data, restricted data, dan mungkin saja High risk data (token, password). Perlu diperhatikan untuk membuat pesan kesalahan kepada user yang aman(tidak mengekspos error message yang mengandung data sensitif). Celah keamanan yang termasuk dalam kategori ini sebenarnya sangat luas, dan lebih berfokus kepada desain keamanan yang hilang atau salah. Secure design sendiri adalah culture dan metodologi yang terus-menerus mengevaluasi threats dan memastikan bahwa kode yang dirancang diuji dengan detail untuk mencegah metode serangan yang diketahui. Diperlukan suatu kebijakan dan aturan yang kuat dalam proses pengembangan aplikasi. Salah satu contohnya adalah implementasi DevSecOps, yaitu implementasi aspek security pada software development lifecycle. Dalam secure design juga mengawasi celah keamanan supply chain, atau memastikan aplikasi/library dari pihak ketiga aman dan dalam versi paling mutakhir.
 
